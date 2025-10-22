@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Daftar Menu</title>
+  <script>
+    function hitung(ele) {
+      var total = document.getElementById('total').value;
+      total = (total ? parseInt(total) : 0);
+      var harga = 0;
+
+      if (ele.checked) {
+        harga = ele.value;
+        total += parseInt(harga);
+      } else {
+        harga = ele.value;
+        if (total > 0)
+          total -= parseInt(harga);
+      }
+
+      document.getElementById('total').value = total;
+    }
+  </script>
+</head>
+<body>
+  <h1>Daftar Menu Mie Ayam Pak Slamet</h1>
+
+  <label><input type="checkbox" value="13000" id="menu1" onclick="hitung(this);"> Mie ayam Rp. 13.000</label><br>
+  <label><input type="checkbox" value="15000" id="menu2" onclick="hitung(this);"> Mie Ayam Bakso Rp.15.000</label><br>
+  <label><input type="checkbox" value="18000" id="menu3" onclick="hitung(this);"> Mie Ayam Ceker Rp. 18.000</label><hr>
+
+  <strong>Total Bayar: Rp. <input id="total" type="text"></strong>
+</body>
+</html>
